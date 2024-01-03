@@ -23,6 +23,8 @@ exports.fetchData = async (req, res, err) => {
     });
 
     // console.log(scholarArticles);
+
+    // console.log(scholarArticles);
     const journalDataField = ['Title', 'Authors', 'Publication date', 'Journal', 'Volume', 'Issue', 'Pages', 'Publisher', 'Description'];
     const journalData = [];
 
@@ -54,6 +56,9 @@ exports.fetchData = async (req, res, err) => {
       else conferenceData.push(obj);
     }
 
+    console.log(journalData);
+    console.log(conferenceData);
+
     // Converting to CSV -- Journal Data and saving it.
     let json2csvParser = new Parser({ journalDataField });
     const journalDatacsv = json2csvParser.parse(journalData.map((item) => {
@@ -74,23 +79,23 @@ exports.fetchData = async (req, res, err) => {
     });
 
     // Converting to CSV -- Conference Data and saving it
-    json2csvParser = new Parser({ conferenceDataField });
-    const conferenceDatacsv = json2csvParser.parse(conferenceData.map((item) => {
-      const obj = {};
-      for(let i=0; i<conferenceDataField.length; i++){
-        obj[conferenceDataField[i]] = item[conferenceDataField[i]] || "N/A";
-      }
-      return obj;
-    }));
+    // json2csvParser = new Parser({ conferenceDataField });
+    // const conferenceDatacsv = json2csvParser.parse(conferenceData.map((item) => {
+    //   const obj = {};
+    //   for(let i=0; i<conferenceDataField.length; i++){
+    //     obj[conferenceDataField[i]] = item[conferenceDataField[i]] || "N/A";
+    //   }
+    //   return obj;
+    // }));
 
-    filePath = `./csvdata/conference_data_${gsId}.csv`;
-    fs.writeFile(filePath, conferenceDatacsv, (err) => {
-      if (err) {
-        console.error('Error saving CSV file:', err);
-      } else {
-        console.log('CSV file saved successfully:', filePath);
-      }
-    });
+    // filePath = `./csvdata/conference_data_${gsId}.csv`;
+    // fs.writeFile(filePath, conferenceDatacsv, (err) => {
+    //   if (err) {
+    //     console.error('Error saving CSV file:', err);
+    //   } else {
+    //     console.log('CSV file saved successfully:', filePath);
+    //   }
+    // });
 
     // closing the browser
     await browser.close();
