@@ -1,5 +1,5 @@
 import { signInWithPopup } from "firebase/auth";
-import { auth, googleProvider } from "../../config/firebase";
+import { auth, googleProvider } from "../../../config/firebase";
 import React from "react";
 import "./Auth.scss";
 

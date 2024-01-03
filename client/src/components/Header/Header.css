@@ -6,8 +6,7 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
-    z-index: 500;
+    margin-bottom: 50px;
 }
 
 .logo{
@@ -18,7 +17,7 @@ nav{
     text-decoration: none;
 }
 .logo > .logo-link > h2{
-    color: #61DAFB;
+    color: #4371f7;
 }
 
 .nav-links{
@@ -40,5 +39,5 @@ nav{
 }
 
 .nav-link:hover{
-    color: #61DAFB;
+    color: #4371f7;
 }
