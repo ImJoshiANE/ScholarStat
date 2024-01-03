@@ -1,13 +1,12 @@
 // React local and library related imports
-import React, { useState } from "react";
+import React from "react";
 import LogoutButton from "../../LogoutButton/LogoutButton";
+
 import "./Profile.scss";
+import ScholarId from "./ScholarId/ScholarId";
 
 // Profile Component
 const Profile = ({ user }) => {
-  const [googleScholarId, setGoogleScholarId] = useState("Not Entered");
-
-  console.log(user);
   return (
     <div className="container">
       <div className="profile-container">
@@ -19,9 +18,7 @@ const Profile = ({ user }) => {
             <div className="text">
               <p className="name">{user.displayName}</p>
               <p className="job_title">{user.email}</p>
-              <p className="job_discription">
-                {`Google Scholar ID - ${googleScholarId}`}
-              </p>
+              <ScholarId />
             </div>
             <div className="button">
               <div>
